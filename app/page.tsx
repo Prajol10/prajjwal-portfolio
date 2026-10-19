@@ -97,13 +97,13 @@ export default function Home() {
         <div style={{ position: "relative", width: 300, flexShrink: 0 }}>
           <div style={{ position: "absolute", top: -10, right: -14 }}><GeoDeco /></div>
           <div style={{
-            width: 270, height: 310,
+            width: 270, height: 310, overflow: "hidden",
             background: "var(--bg-deep)",
             border: "1px solid var(--border)", borderRadius: 4,
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 14, color: "var(--text-dim)", fontWeight: 700, textAlign: "center", lineHeight: 2,
           }}>
-            [ your photo<br />goes here ]
+            <img src={siteConfig.photo} alt={siteConfig.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
           <div style={{ position: "absolute", bottom: 60, right: -28 }}><DotGrid /></div>
           <div style={{
@@ -144,10 +144,14 @@ export default function Home() {
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 22 }}>
           {featuredProjects.map((p) => (
             <div key={p.slug} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, overflow: "hidden" }}>
-              <div style={{ height: 130, background: "var(--bg-deep)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: "84%", height: 84, background: "var(--bg-main)", borderRadius: 3, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, color: "var(--text-dim)", fontWeight: 700 }}>
-                  screenshot
-                </div>
+              <div style={{ height: 130, overflow: "hidden", background: "var(--bg-deep)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {p.image ? (
+                  <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                ) : (
+                  <div style={{ width: "84%", height: 84, background: "var(--bg-main)", borderRadius: 3, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, color: "var(--text-dim)", fontWeight: 700 }}>
+                    {p.name}
+                  </div>
+                )}
               </div>
               <div style={{ padding: "8px 18px", background: "var(--bg-deep)", borderBottom: "1px solid var(--border)" }}>
                 <div style={{ fontSize: 13, color: "var(--text-dim)", fontWeight: 700, lineHeight: 1.7 }}>
@@ -226,8 +230,40 @@ export default function Home() {
           </Link>
         </div>
         <div style={{ width: 240, flexShrink: 0 }}>
-          <div style={{ width: 230, height: 260, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>
-            [ photo ]
+          <div style={{ width: 230, height: 260, overflow: "hidden", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>
+            <img src={siteConfig.photo} alt={siteConfig.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          </div>
+        </div>
+      </section>
+
+      {/* INTERESTS & CODE HUMOR */}
+      <section style={{ padding: "56px 56px", borderTop: "1px solid var(--border)" }}>
+        <div style={{ display: "flex", alignItems: "center", marginBottom: 36, gap: 18 }}>
+          <h2 style={{ fontSize: 26, color: "var(--text-primary)", fontWeight: 900 }}>
+            <span style={{ color: "var(--purple)" }}>#</span>beyond-code
+          </h2>
+          <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
+        </div>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 40 }}>
+          {siteConfig.interests.map((it) => (
+            <div key={it.name} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: 20 }}>
+              <div style={{ fontSize: 18, fontWeight: 900, color: "var(--purple)", marginBottom: 10 }}>{it.name}</div>
+              <div style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.8, fontStyle: "italic", fontWeight: 500 }}>&ldquo;{it.quote}&rdquo;</div>
+            </div>
+          ))}
+        </div>
+        <div style={{ display: "flex", gap: 24, flexWrap: "wrap", alignItems: "flex-start" }}>
+          <div style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+            {siteConfig.devImages.map((src, i) => (
+              <img key={i} src={src} alt="programmer illustration" style={{ width: 240, borderRadius: 8, border: "1px solid var(--border)" }} />
+            ))}
+          </div>
+          <div style={{ flex: 1, minWidth: 280 }}>
+            {siteConfig.programmingQuotes.map((q, i) => (
+              <p key={i} style={{ fontFamily: "'Courier New', monospace", fontSize: 14, color: "var(--text-muted)", lineHeight: 1.8, marginBottom: 12, fontWeight: 600 }}>
+                <span style={{ color: "var(--purple)" }}>&gt;</span> {q}
+              </p>
+            ))}
           </div>
         </div>
       </section>

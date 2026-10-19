@@ -6,10 +6,14 @@ export default function Works() {
 
   const ProjectCard = ({ p }: { p: typeof siteConfig.projects[0] }) => (
     <div style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, overflow: "hidden" }}>
-      <div style={{ height: 140, background: "var(--bg-deep)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <div style={{ width: "84%", height: 92, background: "var(--bg-main)", borderRadius: 3, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, color: "var(--text-dim)", fontWeight: 700 }}>
-          screenshot
-        </div>
+      <div style={{ height: 140, overflow: "hidden", background: "var(--bg-deep)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        {p.image ? (
+                  <img src={p.image} alt={p.name} style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />
+                ) : (
+                  <div style={{ width: "84%", height: 92, background: "var(--bg-main)", borderRadius: 3, border: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 13, color: "var(--text-dim)", fontWeight: 700 }}>
+                    {p.name}
+                  </div>
+                )}
       </div>
       <div style={{ padding: "8px 18px", background: "var(--bg-deep)", borderBottom: "1px solid var(--border)" }}>
         <div style={{ fontSize: 13, color: "var(--text-dim)", fontWeight: 700, lineHeight: 1.7 }}>{p.tech.join("  ")}</div>
@@ -27,6 +31,7 @@ export default function Works() {
         <div style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.8, marginBottom: 18, fontWeight: 500 }}>{p.description}</div>
         <div style={{ display: "flex", gap: 10 }}>
           {p.live && <a href={p.live} target="_blank" rel="noopener noreferrer" style={{ border: "1.5px solid var(--purple)", color: "var(--purple)", fontSize: 13, padding: "6px 16px", borderRadius: 2, fontWeight: 800, textDecoration: "none" }}>Live &lt;—&gt;</a>}
+          {p.liveAlt && <a href={p.liveAlt} target="_blank" rel="noopener noreferrer" style={{ border: "1.5px solid var(--purple)", color: "var(--purple)", fontSize: 13, padding: "6px 16px", borderRadius: 2, fontWeight: 800, textDecoration: "none" }}>Live 2 &lt;—&gt;</a>}
           {p.github && <a href={p.github} target="_blank" rel="noopener noreferrer" style={{ border: "1.5px solid var(--border)", color: "var(--text-muted)", fontSize: 13, padding: "6px 16px", borderRadius: 2, fontWeight: 800, textDecoration: "none" }}>Code &gt;&gt;</a>}
         </div>
       </div>
