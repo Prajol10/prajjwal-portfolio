@@ -224,6 +224,7 @@ export const siteConfig = {
 
   skills: {
     Languages: ["JavaScript", "TypeScript", "Python", "C#", "SQL", "Java"],
+    "API & Backend": ["Swagger / OpenAPI", "REST API Design", "API Integration", "JWT Authentication", "Postman", "Entity Framework Core", "Webhooks", "Third-party APIs"],
     "Frameworks & Libraries": ["React.js", "Next.js", "ASP.NET Core", "Node.js", "FastAPI", "Tailwind CSS"],
     "AI / ML": ["Machine Learning", "NLP", "TensorFlow", "scikit-learn", "Pandas", "NumPy"],
     Databases: ["PostgreSQL", "MySQL", "MongoDB", "SQLite"],
