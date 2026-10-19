@@ -1,46 +1,33 @@
+import { siteConfig } from "@/lib/data";
+
 export default function Blogs() {
-  const posts = [
-    {
-      slug: "coming-soon",
-      title: "Blog posts coming soon",
-      date: "2026",
-      description: "I will be sharing my learnings, project breakdowns, and engineering insights here soon. Stay tuned!",
-      tags: ["engineering", "AI/ML", "web"],
-    },
-  ];
-
   return (
-    <div style={{ padding: "64px 56px" }}>
+    <div className="page" style={{ padding: "64px 56px" }}>
       <h1 style={{ fontSize: 36, color: "var(--text-primary)", fontWeight: 900, marginBottom: 8 }}>/blogs</h1>
-      <p style={{ fontSize: 16, color: "var(--text-dim)", fontWeight: 700, marginBottom: 64 }}>Thoughts, learnings & breakdowns</p>
+      <p style={{ fontSize: 16, color: "var(--text-dim)", fontWeight: 700, marginBottom: 48 }}>
+        Notes on code, tools and things I am learning
+      </p>
 
-      <div style={{ display: "flex", alignItems: "center", gap: 16, marginBottom: 36 }}>
-        <h2 style={{ fontSize: 24, color: "var(--text-primary)", fontWeight: 900, whiteSpace: "nowrap" }}>
-          <span style={{ color: "var(--purple)" }}>#</span>all-posts
-        </h2>
-        <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
-      </div>
-
-      <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-        {posts.map((post) => (
-          <div key={post.slug} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: "28px 32px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", flexWrap: "wrap", gap: 10, marginBottom: 14 }}>
-              <h3 style={{ fontSize: 18, color: "var(--text-secondary)", fontWeight: 900 }}>{post.title}</h3>
-              <span style={{ fontSize: 13, color: "var(--text-dim)", fontWeight: 700, border: "1px solid var(--border)", padding: "4px 14px", borderRadius: 2 }}>
-                {post.date}
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: 22 }}>
+        {siteConfig.blogs.map((b) => (
+          <article key={b.slug} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: 22 }}>
+            <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
+              <span style={{ fontSize: 11, color: "var(--purple)", border: "1px solid var(--purple)", padding: "2px 8px", borderRadius: 10, fontWeight: 700 }}>
+                {b.tag}
               </span>
+              <span style={{ fontSize: 13, color: "var(--text-dim)", fontWeight: 700 }}>{b.date}</span>
             </div>
-            <p style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.8, fontWeight: 500, marginBottom: 18 }}>
-              {post.description}
-            </p>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              {post.tags.map((tag) => (
-                <span key={tag} style={{ fontSize: 13, color: "var(--purple)", border: "1px solid var(--purple)", padding: "3px 12px", borderRadius: 10, fontWeight: 700 }}>
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
+            <h2 style={{ fontSize: 19, color: "var(--text-primary)", fontWeight: 900, lineHeight: 1.4, marginBottom: 10 }}>{b.title}</h2>
+            <p style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.8, marginBottom: 14, fontWeight: 500 }}>{b.summary}</p>
+            <details>
+              <summary style={{ cursor: "pointer", color: "var(--purple)", fontWeight: 800, fontSize: 14 }}>Read more</summary>
+              <div style={{ marginTop: 14 }}>
+                {b.body.map((para, i) => (
+                  <p key={i} style={{ fontSize: 15, color: "var(--text-muted)", lineHeight: 1.9, marginBottom: 12, fontWeight: 500 }}>{para}</p>
+                ))}
+              </div>
+            </details>
+          </article>
         ))}
       </div>
     </div>

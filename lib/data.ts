@@ -229,6 +229,7 @@ export const siteConfig = {
     "AI / ML": ["Machine Learning", "NLP", "TensorFlow", "scikit-learn", "Pandas", "NumPy"],
     Databases: ["PostgreSQL", "MySQL", "MongoDB", "SQLite"],
     "Tools & Platforms": ["Docker", "Git", "GitHub", "GitLab", "Linux", "Vercel", "Netlify", "Render", "AWS"],
+    DevOps: ["Docker", "Docker Compose", "CI/CD", "Deployment (Render, Vercel, Netlify)"],
     "Architecture & Data": ["Multi-tenant SaaS", "ETL Pipelines", "Data Modeling", "API Development", "System Design"],
     Management: ["Project Management", "Product Management", "Roadmapping", "Agile / Scrum"],
   },
@@ -255,6 +256,81 @@ export const siteConfig = {
     "Programming is 10% writing code and 90% figuring out why it does not work.",
     "I do not always test my code, but when I do, I do it in production.",
     "Debugging: being the detective in a crime movie where you are also the murderer.",
+  ],
+
+  blogs: [
+    {
+      slug: "why-multi-tenant",
+      title: "Why I build multi-tenant apps instead of copy-pasting projects",
+      date: "Oct 2026",
+      tag: "Architecture",
+      summary: "One codebase, many clients: what multi-tenancy really buys you.",
+      body: [
+        "When a second client asks for the same product, the lazy move is to copy the project. By client five you are fixing the same bug five times.",
+        "A multi-tenant app serves many customers from one codebase and one deployment. Each tenant gets its own domain or subdomain, branding, content and data boundaries.",
+        "The hard part is isolation: every query must be scoped to a tenant. Decide early how you resolve the tenant (domain, subdomain or path) and enforce it in one place, not in every controller.",
+      ],
+    },
+    {
+      slug: "docker-for-everyday-dev",
+      title: "Docker for everyday developers: the 20% that matters",
+      date: "Oct 2026",
+      tag: "DevOps",
+      summary: "You do not need to master Kubernetes to benefit from containers.",
+      body: [
+        "Most of the value of Docker is a repeatable environment. If it runs in the container, it runs on your teammate's laptop and on the server.",
+        "Learn four things first: a Dockerfile, image versus container, volumes for data, and Docker Compose to start the app and its database together.",
+        "Keep images small, never bake secrets into them, and pin versions so a rebuild next month behaves like today's build.",
+      ],
+    },
+    {
+      slug: "swagger-openapi-habit",
+      title: "Swagger / OpenAPI is the best documentation habit you can build",
+      date: "Oct 2026",
+      tag: "APIs",
+      summary: "Docs that live next to the code stay correct.",
+      body: [
+        "An OpenAPI spec describes every endpoint, request and response. Tools like Swagger UI turn it into a page where frontend and backend developers can test calls without a single message.",
+        "In ASP.NET Core the spec can be generated from your controllers, so documentation updates every time the code does.",
+        "Treat the spec as a contract: agree on it first, and frontend work can start before the backend is finished.",
+      ],
+    },
+    {
+      slug: "ai-assistants-and-code",
+      title: "Using AI coding assistants without turning off your brain",
+      date: "Oct 2026",
+      tag: "AI",
+      summary: "Great for speed, dangerous for understanding.",
+      body: [
+        "AI assistants are excellent at boilerplate, refactors, explaining unfamiliar code and drafting tests. They are weaker at your real constraints and hidden business rules.",
+        "Read every line before it is committed. If you cannot explain a change, you do not own it yet.",
+        "Give small, specific tasks, run the build and tests after each one, and keep commits small so a bad suggestion is easy to undo.",
+      ],
+    },
+    {
+      slug: "static-vs-server-nextjs",
+      title: "Static vs server rendering in Next.js: pick on purpose",
+      date: "Oct 2026",
+      tag: "Web",
+      summary: "Why my portfolio went back to hardcoded, static content.",
+      body: [
+        "A static page is built once and served from a CDN. It is fast, cheap and has almost nothing to break.",
+        "Server features such as API routes that write files need a real server. On static-style hosting the filesystem is not persistent, so those saves silently disappear.",
+        "If content changes rarely, keeping it in code and redeploying is simpler than a CMS. When it changes weekly, add a real backend or a headless CMS.",
+      ],
+    },
+    {
+      slug: "git-habits",
+      title: "Five Git habits that save teams from pain",
+      date: "Oct 2026",
+      tag: "Tooling",
+      summary: "Small branches, clear messages and no force-push on shared branches.",
+      body: [
+        "Branch for every change, commit small, and write messages that explain why, not just what.",
+        "Pull before you push, review your own diff before opening a merge request, and never force-push a shared branch.",
+        "Keep secrets out of the repository from day one. Once a key is in the history, rotate it.",
+      ],
+    },
   ],
 
   funFacts: [

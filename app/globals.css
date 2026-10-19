@@ -36,3 +36,29 @@ html { scroll-behavior: smooth; }
 ::-webkit-scrollbar-thumb:hover { background: #a78bfa55; }
 
 @keyframes blink { 0%,100%{opacity:0.9} 50%{opacity:0} }
+
+/* ===== responsive ===== */
+html, body { overflow-x: hidden; }
+img, svg { max-width: 100%; }
+button { max-width: 100%; }
+
+@media (max-width: 900px) {
+  .hero { flex-direction: column !important; padding: 40px 24px !important; }
+  .hero-text { padding-left: 0 !important; }
+  .hero-social { display: none !important; }
+  .hero-right { width: 100% !important; max-width: 320px; margin: 0 auto; }
+  .about-snippet { flex-direction: column !important; }
+  .about-photo { width: 100% !important; max-width: 260px; }
+}
+
+@media (max-width: 768px) {
+  section, .page { padding-left: 20px !important; padding-right: 20px !important; }
+  .page { padding-top: 40px !important; padding-bottom: 40px !important; }
+  h1 { word-break: break-word; }
+}
+
+@media (max-width: 480px) {
+  section, .page { padding-left: 16px !important; padding-right: 16px !important; }
+  .hero button { width: 100%; }
+  .hero a { flex: 1 1 100%; }
+}

@@ -27,10 +27,10 @@ export default function Home() {
     <div>
 
       {/* HERO */}
-      <section style={{ padding: "72px 56px 56px", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 40, position: "relative" }}>
+      <section className="hero" style={{ padding: "72px 56px 56px", display: "flex", justifyContent: "space-between", alignItems: "flex-start", gap: 40, position: "relative" }}>
 
         {/* Side icons */}
-        <div style={{ position: "absolute", left: 16, top: 110, display: "flex", flexDirection: "column", gap: 24 }}>
+        <div className="hero-social" style={{ position: "absolute", left: 16, top: 110, display: "flex", flexDirection: "column", gap: 24 }}>
           {[siteConfig.socials.github, siteConfig.socials.linkedin, siteConfig.socials.instagram].map((href, i) => (
             <a key={i} href={href} target="_blank" rel="noopener noreferrer"
               style={{ color: "var(--text-dim)", display: "block", width: 22, height: 22 }}>
@@ -44,7 +44,7 @@ export default function Home() {
         </div>
 
         {/* Hero text */}
-        <div style={{ flex: 1, paddingLeft: 52 }}>
+        <div className="hero-text" style={{ flex: 1, paddingLeft: 52 }}>
           <div style={{ fontSize: 16, color: "var(--text-muted)", letterSpacing: "0.08em", marginBottom: 22, fontWeight: 600 }}>
             // computer engineer · full stack · AI/ML
           </div>
@@ -94,7 +94,7 @@ export default function Home() {
         </div>
 
         {/* Hero right */}
-        <div style={{ position: "relative", width: 300, flexShrink: 0 }}>
+        <div className="hero-right" style={{ position: "relative", width: 300, flexShrink: 0 }}>
           <div style={{ position: "absolute", top: -10, right: -14 }}><GeoDeco /></div>
           <div style={{
             width: 270, height: 310, overflow: "hidden",
@@ -141,7 +141,7 @@ export default function Home() {
             View all ——→
           </Link>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 22 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: 22 }}>
           {featuredProjects.map((p) => (
             <div key={p.slug} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, overflow: "hidden" }}>
               <div style={{ height: 130, overflow: "hidden", background: "var(--bg-deep)", borderBottom: "1px solid var(--border)", display: "flex", alignItems: "center", justifyContent: "center" }}>
@@ -188,7 +188,7 @@ export default function Home() {
           </h2>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))", gap: 16 }}>
           {Object.entries(siteConfig.skills).map(([category, items]) => (
             <div key={category} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: 20 }}>
               <div style={{ fontSize: 14, fontWeight: 900, color: "var(--purple)", marginBottom: 14, paddingBottom: 12, borderBottom: "1px solid var(--border)", textTransform: "uppercase", letterSpacing: "0.04em" }}>
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* ABOUT SNIPPET */}
-      <section style={{ padding: "56px 56px", borderTop: "1px solid var(--border)", display: "flex", gap: 48, alignItems: "flex-start" }}>
+      <section className="about-snippet" style={{ padding: "56px 56px", borderTop: "1px solid var(--border)", display: "flex", gap: 48, alignItems: "flex-start" }}>
         <div style={{ flex: 1 }}>
           <div style={{ display: "flex", alignItems: "center", marginBottom: 28, gap: 18 }}>
             <h2 style={{ fontSize: 26, color: "var(--text-primary)", fontWeight: 900 }}>
@@ -229,7 +229,7 @@ export default function Home() {
             </button>
           </Link>
         </div>
-        <div style={{ width: 240, flexShrink: 0 }}>
+        <div className="about-photo" style={{ width: 240, flexShrink: 0 }}>
           <div style={{ width: 230, height: 260, overflow: "hidden", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>
             <img src={siteConfig.photo} alt={siteConfig.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
@@ -244,7 +244,7 @@ export default function Home() {
           </h2>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 40 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 260px), 1fr))", gap: 16, marginBottom: 40 }}>
           {siteConfig.interests.map((it) => (
             <div key={it.name} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: 20 }}>
               <div style={{ fontSize: 18, fontWeight: 900, color: "var(--purple)", marginBottom: 10 }}>{it.name}</div>

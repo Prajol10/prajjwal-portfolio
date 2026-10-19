@@ -39,7 +39,7 @@ export default function Works() {
   );
 
   return (
-    <div style={{ padding: "64px 56px" }}>
+    <div className="page" style={{ padding: "64px 56px" }}>
       <h1 style={{ fontSize: 36, color: "var(--text-primary)", fontWeight: 900, marginBottom: 8 }}>/projects</h1>
       <p style={{ fontSize: 16, color: "var(--text-dim)", fontWeight: 700, marginBottom: 64 }}>List of my projects</p>
 
@@ -50,7 +50,7 @@ export default function Works() {
           </h2>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 22 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: 22 }}>
           {personal.map((p) => <ProjectCard key={p.slug} p={p} />)}
         </div>
       </div>
@@ -62,7 +62,7 @@ export default function Works() {
           </h2>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: 22 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: 22 }}>
           {client.map((p) => <ProjectCard key={p.slug} p={p} />)}
         </div>
       </div>
