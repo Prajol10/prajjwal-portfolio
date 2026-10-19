@@ -2,7 +2,7 @@ import { siteConfig } from "@/lib/data";
 
 export default function AboutMe() {
   return (
-    <div style={{ padding: "64px 56px" }}>
+    <div className="page" style={{ padding: "64px 56px" }}>
       <h1 style={{ fontSize: 36, color: "var(--text-primary)", fontWeight: 900, marginBottom: 8 }}>/about-me</h1>
       <p style={{ fontSize: 16, color: "var(--text-dim)", fontWeight: 700, marginBottom: 64 }}>A little more about me</p>
 
@@ -30,8 +30,8 @@ export default function AboutMe() {
           </p>
         </div>
         <div>
-          <div style={{ width: 240, height: 280, background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>
-            [ photo ]
+          <div style={{ width: 240, height: 280, overflow: "hidden", maxWidth: "100%", background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: "var(--text-dim)", fontWeight: 700 }}>
+            <img src={siteConfig.photo} alt={siteConfig.name} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
           </div>
         </div>
       </div>
@@ -97,7 +97,7 @@ export default function AboutMe() {
           </h2>
           <div style={{ flex: 1, height: 1, background: "var(--border)" }} />
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(210px, 1fr))", gap: 16 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 210px), 1fr))", gap: 16 }}>
           {Object.entries(siteConfig.skills).map(([cat, items]) => (
             <div key={cat} style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: 20 }}>
               <div style={{ fontSize: 14, fontWeight: 900, color: "var(--purple)", marginBottom: 12, paddingBottom: 10, borderBottom: "1px solid var(--border)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{cat}</div>

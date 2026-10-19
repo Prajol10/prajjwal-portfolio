@@ -62,3 +62,17 @@ button { max-width: 100%; }
   .hero button { width: 100%; }
   .hero a { flex: 1 1 100%; }
 }
+
+/* ===== navbar / footer responsive ===== */
+.nav-toggle { display: none; }
+a { overflow-wrap: anywhere; }
+
+@media (max-width: 768px) {
+  .nav { padding: 14px 20px !important; flex-wrap: wrap; }
+  .nav-toggle { display: block !important; }
+  .nav-links { display: none !important; width: 100%; flex-direction: column; gap: 18px !important; padding: 18px 0 8px; }
+  .nav-links.open { display: flex !important; }
+  .footer { padding: 28px 20px !important; flex-direction: column; align-items: flex-start !important; }
+  .footer-right { align-items: flex-start !important; }
+  .footer-links { flex-wrap: wrap; gap: 14px 20px !important; }
+}

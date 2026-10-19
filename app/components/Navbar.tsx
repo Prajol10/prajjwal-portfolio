@@ -1,10 +1,12 @@
 "use client";
+import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { siteConfig } from "@/lib/data";
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
 
   const links = [
     { href: "/works", label: "#works" },
@@ -14,13 +16,13 @@ export default function Navbar() {
   ];
 
   return (
-    <nav style={{
+    <nav className="nav" style={{
       display: "flex", justifyContent: "space-between", alignItems: "center",
       padding: "22px 56px", borderBottom: "1px solid var(--border)",
       position: "sticky", top: 0, zIndex: 100,
       background: "var(--bg-main)",
     }}>
-      <Link href="/" style={{ textDecoration: "none" }}>
+      <Link href="/" onClick={() => setOpen(false)} style={{ textDecoration: "none" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
             width: 24, height: 24, border: "2px solid var(--purple)",
@@ -38,9 +40,22 @@ export default function Navbar() {
         </div>
       </Link>
 
-      <div style={{ display: "flex", gap: 36 }}>
+      <button
+        className="nav-toggle"
+        aria-label="Toggle menu"
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+        style={{
+          background: "transparent", border: "1.5px solid var(--purple)", color: "var(--purple)",
+          width: 40, height: 36, borderRadius: 3, fontSize: 20, cursor: "pointer", lineHeight: 1,
+        }}
+      >
+        {open ? "✕" : "☰"}
+      </button>
+
+      <div className={`nav-links${open ? " open" : ""}`} style={{ display: "flex", gap: 36 }}>
         {links.map((l) => (
-          <Link key={l.href} href={l.href} style={{
+          <Link key={l.href} href={l.href} onClick={() => setOpen(false)} style={{
             color: pathname === l.href ? "var(--purple-hover)" : "var(--purple)",
             fontSize: 16, fontWeight: 700, textDecoration: "none",
             letterSpacing: "0.03em",

@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/data";
 
 export default function Contacts() {
   return (
-    <div style={{ padding: "64px 56px" }}>
+    <div className="page" style={{ padding: "64px 56px" }}>
       <h1 style={{ fontSize: 36, color: "var(--text-primary)", fontWeight: 900, marginBottom: 8 }}>/contacts</h1>
       <p style={{ fontSize: 16, color: "var(--text-dim)", fontWeight: 700, marginBottom: 64 }}>Reach out to me</p>
 
@@ -12,7 +12,7 @@ export default function Contacts() {
           I am primarily interested in software and data-related roles, but I am always open to other
           opportunities. Feel free to reach out — whether it is a project, a job, or just a chat about tech.
         </p>
-        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: "28px 32px", minWidth: 220 }}>
+        <div style={{ background: "var(--bg-card)", border: "1px solid var(--border)", borderRadius: 4, padding: "28px 32px", minWidth: 220, maxWidth: "100%" }}>
           <div style={{ fontSize: 14, fontWeight: 900, color: "var(--text-secondary)", marginBottom: 18, textTransform: "uppercase", letterSpacing: "0.06em" }}>
             Message me here
           </div>

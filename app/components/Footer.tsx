@@ -3,7 +3,7 @@ import { siteConfig } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer style={{
+    <footer className="footer" style={{
       padding: "32px 56px",
       borderTop: "1px solid var(--border)",
       display: "flex",
@@ -32,11 +32,11 @@ export default function Footer() {
         </div>
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-end" }}>
+      <div className="footer-right" style={{ display: "flex", flexDirection: "column", gap: 10, alignItems: "flex-end" }}>
         <span style={{ fontSize: 15, fontWeight: 800, color: "var(--text-secondary)", letterSpacing: "0.08em" }}>
           Media
         </span>
-        <div style={{ display: "flex", gap: 22 }}>
+        <div className="footer-links" style={{ display: "flex", gap: 22 }}>
           <a href={siteConfig.socials.github} target="_blank" rel="noopener noreferrer"
             style={{ color: "var(--text-dim)", fontSize: 15, fontWeight: 700, textDecoration: "none" }}
             onMouseEnter={(e) => (e.currentTarget.style.color = "var(--purple)")}
